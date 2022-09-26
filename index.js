@@ -11,6 +11,7 @@ let wrong = new Audio("sounds/wrong.mp3");
 wrong.volume = 0.3;
 
 let steps; // this counter will show how many steps to click are on each level
+let hard_mode = false;  //  boolean variable to know the game status, hard or normal
 
 //sleep function
 function sleep(ms){
@@ -38,7 +39,8 @@ function getRandomInt(min, max) {
 
 //Selecting the buttons
 const start = document.querySelector('#buttonStart_id');
-const restart = document.querySelector('#buttonRestart_id')
+const hard = document.querySelector('#buttonHard_id');
+const restart = document.querySelector('#buttonRestart_id');
 const red_1 = document.querySelector('#red_1');
 const green_2 = document.querySelector('#green_2');
 const blue_3 = document.querySelector('#blue_3');
@@ -97,6 +99,9 @@ function userAnswer(){
 //The game starts when you click "start"
 start.addEventListener('click',async function () {
     
+    if (hard.checked) {
+        hard_mode = true;
+    }
     
     //This array will save the answers of the 20 levels
     const gamePattern = [];
@@ -110,7 +115,7 @@ start.addEventListener('click',async function () {
     i =0;
     
     //This "while" prevents us from going over 20 levels
-    while( i < 20 ){
+    while( i < 20 && hard.checked == false){
         document.querySelector(".tittle").innerHTML = "Simon's Game";
         
         steps = 1+i; // to know how many clickable steps are per level
@@ -167,21 +172,33 @@ start.addEventListener('click',async function () {
             //If the user makes a mistake in any step, the "for" is broken without having leveled up
             if(userAnswerClick != gamePattern[j]){
                 wrong.play(); // plays sound of error
-                document.querySelector(".tittle").innerHTML = "You missed, try again!";
-                // changing the page style to inform of the error
-                document.body.style.backgroundColor = "red";
-                await sleep(500)
-                document.body.style.backgroundColor = "white";
+                    if (hard.checked == true) {
+                        document.querySelector(".tittle").innerHTML = "Game over, Start again";
+                        // changing the page style to inform of the error
+                        document.body.style.backgroundColor = "red";
+                        await sleep(500)
+                        document.body.style.backgroundColor = "white";
+                        startOver();
+                        break;
+
+                    } else{
+                        document.querySelector(".tittle").innerHTML = "You missed, try again!";
+                        // changing the page style to inform of the error
+                        document.body.style.backgroundColor = "red";
+                        await sleep(500)
+                        document.body.style.backgroundColor = "white";
 
 
-                break;
+                        break;
+                    }
+                
+                
             }
             
             //If the user reaches the last step, he levels up!
             if(j==i){
                 console.log();
                 if(i==19){ //a conditional to boot up the play again button and the endscreen
-
                     txtEndTitle.innerHTML = "You have completed all 20 levels";
                     document.getElementById('endScreen').style.display = 'block';
                     console.log();
@@ -204,3 +221,9 @@ restart.addEventListener('click',async function () {
     alert("Game is restarting!") //pop-up message alerting the user the game is restarting//
     location.reload(); //refreshes the entire page in order to erase all the information and start from the beginning//
 })
+
+// reseting to a new game pattern
+function startOver() {
+    // so the game doesn't enter the while loop 
+   hard_mode = false;
+ }
