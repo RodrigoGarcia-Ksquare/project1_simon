@@ -110,3 +110,23 @@ body{
 .footer{
     font-size: large;
 }
+
+#endScreen{
+    position: absolute;
+    z-index: 101;
+    width: 320px;
+    height: 320px;
+    background-color: #fbef06;
+    display: none;
+    cursor: pointer;
+    align-self: center;
+}
+
+#endScreenContent{
+    width: 600px;
+    height: 600px;
+    padding: 10px;
+    background-color: #fbef06;
+    margin: 40 auto;
+    text-align: center;
+}
