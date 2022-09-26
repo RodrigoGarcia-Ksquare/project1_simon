@@ -17,6 +17,17 @@ function sleep(ms){
     return new Promise(resolve =>setTimeout(resolve, ms));
 }
 
+//function for the endscreen
+function endtxt(){
+    var txtEndTitle = document.getElementById('txtEndTitle');
+    document.getElementById('endScreen').style.display = 'block';
+}
+
+//function to replay
+function replay(){
+    location.reload();
+}
+
 //Function that returns a random number between the specified values.
 //The return value will not be lower than "min" , and will be less than (but not equal to) "max"
 function getRandomInt(min, max) {
@@ -168,6 +179,14 @@ start.addEventListener('click',async function () {
             
             //If the user reaches the last step, he levels up!
             if(j==i){
+                console.log();
+                if(i==19){ //a conditional to boot up the play again button and the endscreen
+
+                    txtEndTitle.innerHTML = "You have completed all 20 levels";
+                    document.getElementById('endScreen').style.display = 'block';
+                    console.log();
+                    document.body.style.backgroundColor = "#fbef06";
+                }
                 i++; //level up
                 break;
 
