@@ -115,7 +115,7 @@ start.addEventListener('click',async function () {
     i =0;
     
     //This "while" prevents us from going over 20 levels
-    while( i < 20 && hard.checked == false){
+    while( i < 20){
         document.querySelector(".tittle").innerHTML = "Simon's Game";
         
         steps = 1+i; // to know how many clickable steps are per level
@@ -224,6 +224,7 @@ restart.addEventListener('click',async function () {
 
 // reseting to a new game pattern
 function startOver() {
-    // so the game doesn't enter the while loop 
-   hard_mode = false;
+    // hard_mode = false; // so the game doesn't enter the while loop 
+    alert("No hard mode for you. Try normal mode!")
+    location.reload();
  }
