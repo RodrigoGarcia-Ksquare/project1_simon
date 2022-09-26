@@ -27,11 +27,13 @@ function getRandomInt(min, max) {
 
 //Selecting the buttons
 const start = document.querySelector('#buttonStart_id');
+const restart = document.querySelector('#buttonRestart_id')
 const red_1 = document.querySelector('#red_1');
 const green_2 = document.querySelector('#green_2');
 const blue_3 = document.querySelector('#blue_3');
 const yellow_4 = document.querySelector('#yellow_4');
 
+let gamepattern = [];
 //this variable stores the user's responses for each click
 var userAnswerClick;
 
@@ -177,3 +179,9 @@ start.addEventListener('click',async function () {
         }
     }
 );
+
+//adding the restart button//
+restart.addEventListener('click',async function () {
+    alert("Game is restarting!") //pop-up message alerting the user the game is restarting//
+    location.reload(); //refreshes the entire page in order to erase all the information and start from the beginning//
+})
