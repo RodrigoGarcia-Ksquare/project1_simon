@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 console.log('Live reloading')
 //sounds
 let simonAudio1 = document.createElement("audio")
