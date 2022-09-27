@@ -241,3 +241,5 @@ function startOver() {
     alert("No hard mode for you. Try normal mode!")
     location.reload();
  }
+
+ //We have finished =)
