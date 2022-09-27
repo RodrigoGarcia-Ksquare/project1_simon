@@ -242,4 +242,4 @@ function startOver() {
     location.reload();
  }
 
- //We have finished =)
+ //We have finished!
