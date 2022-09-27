@@ -1,10 +1,18 @@
 console.log('Live reloading')
 //sounds
-let simonAudio = document.createElement("audio")
-simonAudio.setAttribute("src", "https://s3.amazonaws.com/freecodecamp/simonSound3.mp3")
+let simonAudio1 = document.createElement("audio")
+simonAudio1.setAttribute("src", "https://s3.amazonaws.com/freecodecamp/simonSound1.mp3")
 
 let simonAudio2 = document.createElement("audio")
-simonAudio2.setAttribute("src", "https://s3.amazonaws.com/freecodecamp/simonSound4.mp3")
+simonAudio2.setAttribute("src", "https://s3.amazonaws.com/freecodecamp/simonSound2.mp3")
+
+let simonAudio3 = document.createElement("audio")
+simonAudio3.setAttribute("src", "https://s3.amazonaws.com/freecodecamp/simonSound3.mp3")
+
+let simonAudio4 = document.createElement("audio")
+simonAudio4.setAttribute("src", "https://s3.amazonaws.com/freecodecamp/simonSound4.mp3")
+
+
 
 // Audio to play when committing an error in the played pattern
 let wrong = new Audio("sounds/wrong.mp3");
@@ -56,7 +64,7 @@ function userAnswer(){
     red_1.addEventListener('click',async function () {
             userAnswerClick=1;
             red_1.setAttribute('class','pattern_select_red');
-            simonAudio2.play()
+            simonAudio1.play()
             await sleep(200); 
             red_1.setAttribute('class','red');
         });
@@ -72,7 +80,7 @@ function userAnswer(){
     blue_3.addEventListener('click',async function () {
             userAnswerClick=3;
             blue_3.setAttribute('class','pattern_select_blue');
-            simonAudio2.play()
+            simonAudio3.play()
             await sleep(200); 
             blue_3.setAttribute('class','blue'); 
         });
@@ -80,7 +88,7 @@ function userAnswer(){
     yellow_4.addEventListener('click',async function () {
             userAnswerClick=4;
             yellow_4.setAttribute('class','pattern_select_yellow');
-            simonAudio2.play()
+            simonAudio4.play()
             await sleep(200);  
             yellow_4.setAttribute('class','yellow');
         });
@@ -130,28 +138,28 @@ start.addEventListener('click',async function () {
             switch (gamePattern[j]){
                 case 1:
                 red_1.setAttribute('class','pattern_select_red');
-                simonAudio.play()
+                simonAudio1.play()
                 await sleep(500); 
                 red_1.setAttribute('class','red');
                 break;
 
                 case 2:
                 green_2.setAttribute('class','pattern_select_green');
-                simonAudio.play()
+                simonAudio2.play()
                 await sleep(500);   
                 green_2.setAttribute('class','green'); 
                 break;
 
                 case 3:
                 blue_3.setAttribute('class','pattern_select_blue');
-                simonAudio.play()
+                simonAudio3.play()
                 await sleep(500); 
                 blue_3.setAttribute('class','blue'); 
                 break;
 
                 case 4:
                 yellow_4.setAttribute('class','pattern_select_yellow');
-                simonAudio.play()
+                simonAudio4.play()
                 await sleep(500);  
                 yellow_4.setAttribute('class','yellow');
                 break;
@@ -177,18 +185,18 @@ start.addEventListener('click',async function () {
                     if (hard.checked == true) {
                         document.querySelector(".tittle").innerHTML = "Game over, Start again";
                         // changing the page style to inform of the error
-                        document.body.style.backgroundColor = "red";
+                        document.body.setAttribute('class','body2');
                         await sleep(500)
-                        document.body.style.backgroundColor = "white";
+                        document.body.setAttribute('class','body');
                         startOver();
                         break;
 
                     } else{
                         document.querySelector(".tittle").innerHTML = "You missed, try again!";
                         // changing the page style to inform of the error
-                        document.body.style.backgroundColor = "red";
+                        document.body.setAttribute('class','body2');
                         await sleep(500)
-                        document.body.style.backgroundColor = "white";
+                        document.body.setAttribute('class','body');
 
 
                         break;
@@ -205,6 +213,9 @@ start.addEventListener('click',async function () {
                     document.getElementById('endScreen').style.display = 'block';
                     console.log();
                     document.body.style.backgroundColor = "#fbef06";
+                    await sleep(500);
+                    document.body.style.backgroundColor = "#fbef06";
+
                 }
                 i++; //level up
                 break;
