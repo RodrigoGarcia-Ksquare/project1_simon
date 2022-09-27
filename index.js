@@ -185,9 +185,9 @@ start.addEventListener('click',async function () {
                     if (hard.checked == true) {
                         document.querySelector(".tittle").innerHTML = "Game over, Start again";
                         // changing the page style to inform of the error
-                        document.body.style.backgroundColor = "red";
+                        document.body.setAttribute('class','body2');
                         await sleep(500)
-                        document.body.style.backgroundColor = "white";
+                        document.body.setAttribute('class','body');
                         startOver();
                         break;
 
