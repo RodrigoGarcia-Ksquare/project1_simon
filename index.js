@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 console.log('Live reloading')
 //sounds
 let simonAudio1 = document.createElement("audio")
@@ -244,3 +245,6 @@ function startOver() {
  }
 
  //We have finished =)
+=======
+console.log('Live reloading')
+>>>>>>> master
