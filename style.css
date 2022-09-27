@@ -6,6 +6,30 @@ body{
     font-family: 'Times New Roman';
     font-weight: bolder;
     font-size: xx-large;
+    background-image: url("https://wallpaper.dog/large/10804297.png");
+    background-color: #cccccc;
+    color: white;
+}
+
+.body{
+    margin: 0%;
+    font-family: 'Times New Roman';
+    font-weight: bolder;
+    font-size: xx-large;
+    background-image: url("https://wallpaper.dog/large/10804297.png");
+    background-color: #cccccc;
+    color: white;
+}
+
+.body2{
+    margin: 0%;
+    font-family: 'Times New Roman';
+    font-weight: bolder;
+    font-size: xx-large;
+    background-image: url("https://img.freepik.com/free-photo/card-soft-template-paper-report_1258-167.jpg?w=900&t=st=1664241334~exp=1664241934~hmac=463c2cb81e70ca95a78200c488536d2639ab0c303ab9ec0a558395be2d1a0fba");
+    background-color: black;
+    color: black;
+
 }
 
 .flexBox{
