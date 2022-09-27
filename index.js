@@ -120,6 +120,8 @@ start.addEventListener('click',async function () {
         
         steps = 1+i; // to know how many clickable steps are per level
         document.querySelector(".tittle").innerHTML = ("Level: " + steps);
+        document.querySelector(".step").innerHTML = ("Step: " + 0 + "/" + steps);
+        
        
         //This "for" shows the pattern to enter (its limit is the level reached)
         for(j =0; j<=i; j++){
@@ -162,13 +164,13 @@ start.addEventListener('click',async function () {
             await sleep(500);
         }
 
-    
+        
         //This "for" evaluates the user's response
         for(j =0; j<=i; j++){
 
             //We wait for the user's response
             await userAnswer();
-            
+            document.querySelector(".step").innerHTML = ("Step: " + (j+1) + "/" + steps);
             //If the user makes a mistake in any step, the "for" is broken without having leveled up
             if(userAnswerClick != gamePattern[j]){
                 wrong.play(); // plays sound of error
